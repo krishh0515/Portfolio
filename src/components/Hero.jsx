@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Download, BarChart2, TrendingUp, Presentation } from 'lucide-react';
+import { ArrowRight, Download, BarChart2, TrendingUp, Palette } from 'lucide-react';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -21,8 +21,9 @@ const Hero = () => {
       <div className="container">
         <div className="grid" style={{ gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)', gap: '2rem', alignItems: 'center' }}>
           <div>
-            <div className="badge animate-fade-in" style={{ marginBottom: '1.5rem', animationDelay: '0.1s' }}>
-              Data Analyst
+            <div className="animate-fade-in" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.5rem', animationDelay: '0.1s' }}>
+              <span className="badge">Designer</span>
+              <span className="badge">Data Analyst</span>
             </div>
             <h1 className="animate-fade-in" style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', marginBottom: '1.5rem', animationDelay: '0.2s' }}>
               Hi, I'm <span className="text-secondary">Krishnaji</span> <br />
@@ -44,7 +45,7 @@ const Hero = () => {
             <div className="animate-fade-in grid grid-cols-3" style={{ marginTop: '4rem', gap: '1rem', animationDelay: '0.5s' }}>
               {[
                 { icon: <BarChart2 className="text-gradient" />, title: 'Analysis', desc: 'Python & SQL' },
-                { icon: <Presentation className="text-gradient" />, title: 'Visualization', desc: 'Power BI / Excel' },
+                { icon: <Palette className="text-gradient" />, title: 'Creative Thinking', desc: 'Designer' },
                 { icon: <TrendingUp className="text-gradient" />, title: 'Strategy', desc: 'Actionable Insights' }
               ].map((stat, i) => (
                 <div key={i} className="card" style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -60,7 +61,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div style={{ 
+          <div className="hero-photo-wrap" style={{ 
             position: 'relative', 
             display: 'flex', 
             justifyContent: 'center', 
@@ -94,6 +95,7 @@ const Hero = () => {
                 inset: 0,
                 background: 'linear-gradient(to top, rgba(11, 17, 32, 0.4) 0%, transparent 40%)'
               }}></div>
+
             </div>
             
             {/* Floating accent for the photo */}
