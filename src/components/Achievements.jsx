@@ -176,10 +176,6 @@ const Achievements = () => {
 
   const ActivitySection = ({ emoji, title, description, points, images, onOpen, bgPhoto }) => (
     <div style={{
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: '2.5rem',
-      alignItems: 'start',
       marginBottom: '3rem',
       padding: '2rem',
       background: bgPhoto ? 'transparent' : 'var(--bg-card)',
@@ -207,19 +203,16 @@ const Achievements = () => {
           }} />
         </>
       )}
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: '2.5rem',
-      alignItems: 'start',
-      marginBottom: '3rem',
-      padding: '2rem',
-      background: 'var(--bg-card)',
-      border: '1px solid var(--border-color)',
-      borderRadius: '24px'
-    }}>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
+        gap: '2.5rem',
+        alignItems: 'start',
+        position: 'relative',
+        zIndex: 2,
+      }}>
       {/* LEFT — Title & Description */}
-      <div style={{ paddingTop: '0.5rem', position: 'relative', zIndex: 2 }}>
+      <div style={{ paddingTop: '0.5rem', minWidth: 0 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
           <span style={{ fontSize: '1.75rem' }}>{emoji}</span>
           <h4 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>{title}</h4>
@@ -238,7 +231,7 @@ const Achievements = () => {
       </div>
 
       {/* RIGHT — Certificate Photocards */}
-      <div style={{ display: 'grid', gridTemplateColumns: images.length === 1 ? '1fr' : 'repeat(auto-fill, minmax(180px, 1fr))', gap: '1rem', position: 'relative', zIndex: 2 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: images.length === 1 ? 'minmax(0, 320px)' : 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', alignContent: 'start', justifyContent: 'start', minWidth: 0 }}>
         {images.map((img, idx) => (
           <div
             key={idx}

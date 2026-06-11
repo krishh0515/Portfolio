@@ -16,8 +16,52 @@
 
   --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
   --accent-glow: rgba(56, 189, 248, 0.15);
+  --nav-background: rgba(11, 17, 32, 0.85);
+  --page-background: radial-gradient(circle at top, rgba(56, 189, 248, 0.08) 0%, transparent 34%), linear-gradient(180deg, #0b1120 0%, #0b1120 100%);
 
   --transition: all 0.3s ease;
+}
+
+:root[data-theme='light'] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.82);
+  --bg-hover: #e2e8f0;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-accent: #2563eb;
+  --text-accent-hover: #1d4ed8;
+
+  --border-color: rgba(15, 23, 42, 0.08);
+  --border-color-hover: rgba(37, 99, 235, 0.25);
+
+  --accent-gradient: linear-gradient(135deg, #2563eb 0%, #14b8a6 100%);
+  --accent-glow: rgba(37, 99, 235, 0.14);
+  --nav-background: rgba(248, 250, 252, 0.88);
+  --page-background: radial-gradient(circle at top, rgba(37, 99, 235, 0.09) 0%, transparent 32%), linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+  color-scheme: light;
+}
+
+:root[data-theme='eco'] {
+  --bg-primary: #eff8f2;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.84);
+  --bg-hover: #dcefe2;
+
+  --text-primary: #123524;
+  --text-secondary: #4b6b58;
+  --text-accent: #2f855a;
+  --text-accent-hover: #276749;
+
+  --border-color: rgba(18, 53, 36, 0.09);
+  --border-color-hover: rgba(47, 133, 90, 0.28);
+
+  --accent-gradient: linear-gradient(135deg, #2f855a 0%, #68d391 100%);
+  --accent-glow: rgba(47, 133, 90, 0.16);
+  --nav-background: rgba(239, 248, 242, 0.9);
+  --page-background: radial-gradient(circle at top, rgba(104, 211, 145, 0.14) 0%, transparent 32%), linear-gradient(180deg, #eff8f2 0%, #e1f0e7 100%);
+  color-scheme: light;
 }
 
 * {
@@ -32,11 +76,12 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg-primary);
+  background: var(--page-background);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 /* Typography elements */

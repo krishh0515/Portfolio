@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Database } from 'lucide-react';
+import { Menu, X, Database, Moon, Sun, Leaf } from 'lucide-react';
 
-const Navbar = () => {
+const themeOptions = [
+  { key: 'dark', label: 'Dark', icon: Moon },
+  { key: 'light', label: 'Light', icon: Sun },
+  { key: 'eco', label: 'Eco', icon: Leaf },
+];
+
+const Navbar = ({ theme, onThemeChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -27,7 +33,7 @@ const Navbar = () => {
       top: 0,
       width: '100%',
       zIndex: 50,
-      background: isScrolled ? 'rgba(11, 17, 32, 0.8)' : 'transparent',
+      background: isScrolled ? 'var(--nav-background)' : 'transparent',
       backdropFilter: isScrolled ? 'blur(12px)' : 'none',
       borderBottom: isScrolled ? '1px solid var(--border-color)' : '1px solid transparent',
       transition: 'var(--transition)'
@@ -45,6 +51,38 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginLeft: '1rem' }}>
+          {themeOptions.map(({ key, label, icon: Icon }) => {
+            const isActive = theme === key;
+            return (
+              <button
+                key={key}
+                type="button"
+                onClick={() => onThemeChange(key)}
+                aria-pressed={isActive}
+                title={`${label} theme`}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  padding: '0.45rem 0.75rem',
+                  borderRadius: '999px',
+                  border: isActive ? '1px solid var(--text-accent)' : '1px solid var(--border-color)',
+                  background: isActive ? 'var(--bg-hover)' : 'transparent',
+                  color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)',
+                  cursor: 'pointer',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  transition: 'var(--transition)'
+                }}
+              >
+                <Icon size={14} />
+                <span>{label}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Mobile Toggle */}
